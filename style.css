@@ -237,7 +237,6 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 }
 
 /* --- NEU: HOVER EFFEKT FÜR GALERIE --- */
-/* Dies sorgt dafür, dass sich ALLE Bilder in der roten Galerie bewegen */
 .gallery-item a img {
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -395,6 +394,7 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 .page-tagblatt { background-color: var(--color-beige); }
 .page-mmp { background-color: var(--color-yellow); }
 .page-assistant { background-color: var(--color-beige); }
+.page-pending { background-color: var(--color-beige); }
 
 /* --- FOOTER LINKS STYLE FIX --- */
 .footer-links a {
@@ -421,7 +421,20 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
     .grid-2-col { grid-template-columns: 1fr; gap: 2rem; }
     .reverse-mobile { display: flex; flex-direction: column-reverse; }
     
-    .main-title { font-size: 4.5rem; line-height: 0.8; }
+    /* --- HIER DER TITEL FIX --- */
+    .main-title { 
+        font-size: 4.5rem; /* Schrift bleibt groß */
+        line-height: 0.85; /* Genug Platz, damit GINA nicht SORAYA überlappt */
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* Zieht Ruffino wieder hoch, weil wir line-height erhöht haben */
+    .line-bottom-wrapper {
+        display: block;
+        margin-top: -20px; 
+    }
+
     .line-bottom-wrapper::before, .line-bottom-wrapper::after { display: none; }
     
     .est { font-size: 2rem; top: 100%; margin-top: 20px; }
@@ -434,9 +447,3 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
     .footer-links { flex-direction: column; text-align: center; padding-bottom: 2rem; gap: 1rem;}
     .icon-small { width: 30px; transform: rotate(10deg); margin: 10px 0;} 
 }
-
-.page-tagblatt { background-color: var(--color-beige); }
-.page-mmp { background-color: var(--color-yellow); }
-.page-assistant { background-color: var(--color-beige); }
-
-.page-pending { background-color: var(--color-beige); }
