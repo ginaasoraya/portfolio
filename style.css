@@ -411,7 +411,18 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
     padding: 0;
     color: inherit;
 }
+@media (min-width: 901px) {
+    .fly-in {
+        opacity: 0;
+        transform: translateY(100px); /* Startet 100px weiter unten */
+        transition: all 1s ease-out; /* Braucht 1 Sekunde zum Hochfliegen */
+    }
 
+    .fly-in.visible {
+        opacity: 1;
+        transform: translateY(0); /* Landet am Originalplatz */
+    }
+}
 /* --- 8. MOBILE RESPONSIVE --- */
 /* --- 8. MOBILE RESPONSIVE (Ganz unten ersetzen) --- */
 @media (max-width: 900px) {
