@@ -16,7 +16,7 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Verhindert seitliches Scrollen */
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -35,7 +35,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Jede Sektion füllt den Bildschirm */
 .section {
     height: 100vh;
     width: 100%;
@@ -50,27 +49,25 @@ body {
 
 /* --- 3. HERO SECTION (Vollbild) --- */
 .hero-section {
-    padding: 0; /* Kein Rand, damit Bild vollflächig ist */
+    padding: 0;
     background-color: var(--color-beige);
 }
 
-/* Das Hintergrundbild Hero */
 .hero-image-container {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    z-index: 1; /* Ebene 1: Hinten */
+    z-index: 1;
 }
 
 .hero-image-container img {
     width: 100%; height: 100%;
-    object-fit: cover; /* Zoomt rein, füllt alles */
+    object-fit: cover;
     object-position: center;
 }
 
-/* Der Text Container Hero */
 .hero-content {
-    z-index: 10; /* Ebene 10: Vorne */
+    z-index: 10;
     align-items: center; 
     justify-content: center; 
 }
@@ -85,7 +82,6 @@ body {
 .main-title {
     font-family: var(--font-serif);
     font-size: 8rem; 
-    /* HIER: Je kleiner die Zahl, desto enger die Zeilen */
     line-height: 0.55; 
     color: var(--color-orange);
     text-transform: uppercase;
@@ -93,20 +89,14 @@ body {
     position: relative;
 }
 
-/* Obere Zeile */
-.line-top {
-    display: block;
-}
+.line-top { display: block; }
 
-/* Untere Zeile (Wrapper für Pseudo-Elemente) */
 .line-bottom-wrapper {
     position: relative;
     display: inline-block; 
-    /* HIER: Zieht die zweite Zeile zusätzlich nach oben */
     margin-top: -10px; 
 }
 
-/* "GRAPHIC DESIGNER" links und rechts */
 .line-bottom-wrapper::before,
 .line-bottom-wrapper::after {
     content: "Multimedia Producer";
@@ -121,23 +111,15 @@ body {
     white-space: nowrap;
 }
 
-.line-bottom-wrapper::before {
-    right: 100%;
-    margin-right: 20px; /* Abstand links */
-}
+.line-bottom-wrapper::before { right: 100%; margin-right: 20px; }
+.line-bottom-wrapper::after { left: 100%; margin-left: 20px; }
 
-.line-bottom-wrapper::after {
-    left: 100%;
-    margin-left: 20px; /* Abstand rechts */
-}
-
-/* Est. 2022 */
 .est {
     font-family: 'Brush Script MT', cursive;
     color: #fff;
     font-size: 2.5rem;
     position: absolute;
-    top: 100%; /* Unter dem Titel */
+    top: 100%;
     left: 50%;
     transform: translateX(-50%) rotate(-5deg);
     margin-top: 10px;
@@ -147,11 +129,10 @@ body {
 
 /* --- 5. FOOTER (Vollbild Style) --- */
 .footer-section {
-    padding: 0; /* Randlos */
+    padding: 0;
     background-color: var(--color-orange);
 }
 
-/* Footer Hintergrundbild */
 .footer-image-container {
     position: absolute;
     top: 0; left: 0;
@@ -165,10 +146,9 @@ body {
     object-position: center; 
 }
 
-/* Footer Inhalt */
 .footer-content {
     position: relative;
-    z-index: 2; /* Über dem Bild */
+    z-index: 2;
     width: 100%; height: 100%;
     display: flex;
     flex-direction: column;
@@ -191,16 +171,17 @@ body {
     gap: 3rem;
     color: #fff;
     background-color: var(--color-orange);
-    width: 100%; /* Volle Breite */
+    width: 100%;
     justify-content: center;
+    align-items: center; /* Zentriert Sterne vertikal */
     padding: 2rem;
     position: absolute;
-    bottom: 0; /* Klebt unten */
+    bottom: 0;
     left: 0;
     z-index: 3;
 }
 
-/* --- 6. LAYOUT UTILITIES (Content Sections) --- */
+/* --- 6. LAYOUT UTILITIES --- */
 .content-wrapper {
     width: 100%;
     max-width: 1200px;
@@ -241,14 +222,84 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; height: 70%; align-items: center; }
 .item-1 { align-self: start; } .item-2 { align-self: center; margin-top: 50px;} .item-3 { align-self: end; position: relative; }
 
-.star-placeholder, .flower-placeholder { color: var(--color-orange); font-size: 4rem; position: absolute; user-select: none; }
-.big-star { font-size: 10rem; transform: rotate(15deg); }
-.flower-placeholder { color: #F9E4C9; font-size: 6rem; top: -50px; right: -20px;}
 .outline-text { -webkit-text-stroke: 2px #F9E4C9; color: transparent; font-size: 4rem; position: absolute; bottom: 5%; left: 0; font-family: var(--font-serif); }
-.outline-flower { -webkit-text-stroke: 2px var(--color-orange); color: transparent; }
-.small-star { position: relative; font-size: 1.5rem; color: #fff; } /* Sterne im Footer */
 
-/* --- 7. MOBILE RESPONSIVE --- */
+/* WICHTIG: Damit absolute Positionierung innerhalb einer Spalte funktioniert */
+.relative-container { position: relative; } 
+
+/* --- 7. GRAFIK & STERNE EINSTELLUNGEN (NEU) --- */
+
+/* Basis-Klasse für alle Sterne */
+.graphic-icon {
+    position: absolute;
+    display: block;
+    opacity: 0.9;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 1. Intro Section (Hinter dem Text) */
+.icon-intro {
+    width: 180px; /* Größe anpassen */
+    top: 140px;    /* Position von oben */
+    right: 20px;  /* Position von rechts */
+    z-index: -1;  /* WICHTIG: Hinter den Text schieben */
+    transform: rotate(15deg);
+}
+/* Damit 'z-index: -1' funktioniert, darf der Container keine Farbe haben oder muss 'z-index: auto' sein.
+   Wir setzen den Text explizit höher. */
+.intro-section .text-col {
+    position: relative;
+    z-index: 2; 
+}
+
+/* 2. Projekte (Statt der Blume) */
+.icon-flower {
+    width:200px;
+    top: -120px;
+    right: -30px;
+    z-index: 0;
+    transform: rotate(-10deg);
+}
+
+/* 3. Eco Skincare (Großer Stern) */
+.icon-big {
+    width: 250px; /* Sehr groß */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    z-index: -1; /* Hinter den Titel */
+    opacity: 0.6; /* Etwas transparenter */
+}
+
+/* 4. Sustainable Craft (Outline Blume Ersatz) */
+.icon-outline {
+    width: 180px;
+    top: -50px;
+    right: -20px;
+    z-index: -1;
+    transform: rotate(5deg);
+}
+
+/* 5. Luxury Wellness (Ecke unten) */
+.icon-corner {
+    width: 120px;
+    bottom: -40px;
+    right: -40px;
+    z-index: 2;
+    transform: rotate(-15deg);
+}
+
+/* 6. Footer (Kleine Sterne) */
+.icon-small {
+    position: relative; /* Im Footer nicht absolut, sondern im Fluss */
+    width: 40px;
+    height: 40px;
+    top: auto; right: auto;
+    opacity: 1;
+}
+
+/* --- 8. MOBILE RESPONSIVE --- */
 @media (max-width: 900px) {
     .section { height: auto; min-height: 100vh; padding: 4rem 1rem; }
     .hero-section, .footer-section { height: 100vh; padding: 0; }
@@ -259,7 +310,6 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
     
     /* Hero Mobile */
     .main-title { font-size: 4.5rem; line-height: 0.8; }
-    /* Auf Handy seitliche Texte ausblenden, da kein Platz */
     .line-bottom-wrapper::before, .line-bottom-wrapper::after { display: none; }
     
     .est { font-size: 2rem; top: 100%; margin-top: 20px; }
@@ -268,5 +318,8 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
     .gallery-grid { grid-template-columns: 1fr; }
     .item-2 { margin-top: 0; }
     .big-cta { font-size: 3rem; }
+    
     .footer-links { flex-direction: column; text-align: center; padding-bottom: 2rem; gap: 1rem;}
+    /* Im Footer auf Mobile auch drehen */
+    .icon-small { width: 30px; transform: rotate(10deg); margin: 10px 0;} 
 }
