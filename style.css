@@ -172,7 +172,7 @@ body {
     background-color: var(--color-orange);
     width: 100%;
     justify-content: center;
-    align-items: center; /* Zentriert Sterne vertikal */
+    align-items: center; 
     padding: 2rem;
     position: absolute;
     bottom: 0;
@@ -219,14 +219,30 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 .img-2 { align-self: flex-end; width: 70%; margin-top: -50px; border: 5px solid #fff; }
 
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; height: 90%; align-items: center; }
-.item-1 { align-self: start; margin-bottom: 40px; } .item-2 { align-self: center; margin-top: 50px;} .item-3 { align-self: end; position: relative;margin-left: 60px; margin-top: 40px; }
+.item-1 { align-self: start; margin-bottom: 40px; } 
+.item-2 { align-self: center; margin-top: 50px;} 
+.item-3 { align-self: end; position: relative; margin-left: 60px; margin-top: 40px; }
+
+/* --- FIX: Bildgrössen in der Galerie (Jung & Product) --- */
+/* Dies zwingt die Bilder in Item 1 und 3 auf die Platzhalter-Grösse */
+.item-1 a img {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+}
+
+.item-3 a img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+}
 
 .outline-text { -webkit-text-stroke: 2px #F9E4C9; color: transparent; font-size: 4rem; position: absolute; bottom: 5%; left: 0; font-family: var(--font-serif); }
 
 /* WICHTIG: Damit absolute Positionierung innerhalb einer Spalte funktioniert */
 .relative-container { position: relative; } 
 
-/* --- 7. GRAFIK & STERNE EINSTELLUNGEN (NEU) --- */
+/* --- 7. GRAFIK & STERNE EINSTELLUNGEN --- */
 
 /* Basis-Klasse für alle Sterne */
 .graphic-icon {
@@ -237,16 +253,14 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
     user-select: none;
 }
 
-/* 1. Intro Section (Hinter dem Text) */
+/* 1. Intro Section */
 .icon-intro {
-    width: 180px; /* Größe anpassen */
-    top: 140px;    /* Position von oben */
-    right: 20px;  /* Position von rechts */
-    z-index: -1;  /* WICHTIG: Hinter den Text schieben */
+    width: 180px; 
+    top: 180px;    
+    right: 20px;  
+    z-index: -1;  
     transform: rotate(15deg);
 }
-/* Damit 'z-index: -1' funktioniert, darf der Container keine Farbe haben oder muss 'z-index: auto' sein.
-   Wir setzen den Text explizit höher. */
 .intro-section .text-col {
     position: relative;
     z-index: 2; 
@@ -263,11 +277,11 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 
 /* 3. Eco Skincare (Großer Stern) */
 .icon-big {
-    width: 250px; /* Sehr groß */
+    width: 250px; 
     top: 50%;
     left: 50%;
     transform: translate(30%, 50%) rotate(20deg);
-    z-index: 2; /* Hinter den Titel */
+    z-index: 2; 
 }
 
 /* 4. Sustainable Craft (Outline Blume Ersatz) */
@@ -290,42 +304,18 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 
 /* 6. Footer (Kleine Sterne) */
 .icon-small {
-    position: relative; /* Im Footer nicht absolut, sondern im Fluss */
+    position: relative; 
     width: 40px;
     height: 40px;
     top: auto; right: auto;
     opacity: 1;
 }
 
-/* --- 8. MOBILE RESPONSIVE --- */
-@media (max-width: 900px) {
-    .section { height: auto; min-height: 100vh; padding: 4rem 1rem; }
-    .hero-section, .footer-section { height: 100vh; padding: 0; }
-    .scroll-container { scroll-snap-type: none; overflow-y: auto; }
-    
-    .grid-2-col { grid-template-columns: 1fr; gap: 2rem; }
-    .reverse-mobile { display: flex; flex-direction: column-reverse; }
-    
-    /* Hero Mobile */
-    .main-title { font-size: 4.5rem; line-height: 0.8; }
-    .line-bottom-wrapper::before, .line-bottom-wrapper::after { display: none; }
-    
-    .est { font-size: 2rem; top: 100%; margin-top: 20px; }
-    .section-title { font-size: 3rem; }
-    .project-title { font-size: 2.5rem; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .item-2 { margin-top: 0; }
-    .big-cta { font-size: 3rem; }
-    
-    .footer-links { flex-direction: column; text-align: center; padding-bottom: 2rem; gap: 1rem;}
-    /* Im Footer auf Mobile auch drehen */
-    .icon-small { width: 30px; transform: rotate(10deg); margin: 10px 0;} 
-}
 /* --- SUBPAGES STYLES --- */
 
 /* Basis für alle Subpages */
 .subpage-body {
-    overflow-y: auto; /* Erlaubt normales Scrollen */
+    overflow-y: auto; 
     height: auto;
 }
 
@@ -369,7 +359,7 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 }
 .back-btn:hover { color: var(--color-orange); }
 
-/* Hover Effekt für Bilder auf der Startseite */
+/* Hover Effekt für Bilder */
 .hover-effect { transition: transform 0.3s ease; cursor: pointer; }
 .hover-effect:hover { transform: scale(1.02); }
 
@@ -377,7 +367,6 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 /* --- TAGBLATT VIDEO GALERIE --- */
 .video-gallery {
     display: grid;
-    /* Automatische Spalten, mindestens 250px breit */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 20px;
     margin-top: 4rem;
@@ -385,7 +374,7 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 
 .reel-video {
     width: 100%;
-    aspect-ratio: 9 / 16; /* Hochformat für Reels */
+    aspect-ratio: 9 / 16;
     object-fit: cover;
     border-radius: 10px;
     background: #000;
@@ -393,32 +382,45 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 
 
 /* --- SPEZIFISCHE FARBEN PRO SUBPAGE --- */
-
-/* Tagblatt Seite */
 .page-tagblatt { background-color: var(--color-beige); }
-
-/* MMP Seite */
 .page-mmp { background-color: var(--color-yellow); }
-
-/* Assistant Seite */
 .page-assistant { background-color: var(--color-beige); }
 
 /* --- FOOTER LINKS STYLE FIX --- */
 .footer-links a {
-    text-decoration: none; /* Entfernt den Unterstrich */
-    color: #fff;           /* Macht die Schrift wieder weiss */
-    cursor: pointer;       /* Zeigt die Hand beim Drüberfahren */
-    transition: opacity 0.3s; /* Macht den Hover weich */
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
 
-/* Optional: Ein kleiner Effekt, wenn man mit der Maus drauf ist */
-.footer-links a:hover {
-    opacity: 0.7; /* Wird leicht transparent beim Drüberfahren */
-}
+.footer-links a:hover { opacity: 0.7; }
 
-/* Damit die <p> Tags im Link keine eigenen Abstände machen */
 .footer-links a p {
     margin: 0;
     padding: 0;
-    color: inherit; /* Erbt die weisse Farbe vom Link */
+    color: inherit;
+}
+
+/* --- 8. MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .section { height: auto; min-height: 100vh; padding: 4rem 1rem; }
+    .hero-section, .footer-section { height: 100vh; padding: 0; }
+    .scroll-container { scroll-snap-type: none; overflow-y: auto; }
+    
+    .grid-2-col { grid-template-columns: 1fr; gap: 2rem; }
+    .reverse-mobile { display: flex; flex-direction: column-reverse; }
+    
+    .main-title { font-size: 4.5rem; line-height: 0.8; }
+    .line-bottom-wrapper::before, .line-bottom-wrapper::after { display: none; }
+    
+    .est { font-size: 2rem; top: 100%; margin-top: 20px; }
+    .section-title { font-size: 3rem; }
+    .project-title { font-size: 2.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .item-2 { margin-top: 0; }
+    .big-cta { font-size: 3rem; }
+    
+    .footer-links { flex-direction: column; text-align: center; padding-bottom: 2rem; gap: 1rem;}
+    .icon-small { width: 30px; transform: rotate(10deg); margin: 10px 0;} 
 }
