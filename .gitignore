@@ -416,3 +416,22 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+
+# --- SICHERHEIT (Zugangsdaten ignorieren) ---
+.vscode/sftp.json
+sftp.json
+
+# --- GROSSE DATEIEN (Videos nicht hochladen) ---
+# Ignoriert den kompletten Video-Ordner
+video/
+
+# Ignoriert einzelne Video-Dateien (egal wo sie liegen)
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# --- SYSTEM DATEIEN (Mac & Windows Müll) ---
+.DS_Store
+Thumbs.db
