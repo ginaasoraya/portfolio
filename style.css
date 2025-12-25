@@ -1,0 +1,272 @@
+/* --- 1. RESET & BASIC --- */
+:root {
+    --color-beige: #F9E4C9;
+    --color-orange: #EA3C12;
+    --color-yellow: #FFB84D;
+    --color-text-dark: #1a1a1a;
+    --font-serif: 'Abril Fatface', cursive;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Verhindert seitliches Scrollen */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text-dark);
+}
+
+/* --- 2. SCROLL SNAP --- */
+.scroll-container {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Jede Sektion füllt den Bildschirm */
+.section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* --- 3. HERO SECTION (Vollbild) --- */
+.hero-section {
+    padding: 0; /* Kein Rand, damit Bild vollflächig ist */
+    background-color: var(--color-beige);
+}
+
+/* Das Hintergrundbild Hero */
+.hero-image-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1; /* Ebene 1: Hinten */
+}
+
+.hero-image-container img {
+    width: 100%; height: 100%;
+    object-fit: cover; /* Zoomt rein, füllt alles */
+    object-position: center;
+}
+
+/* Der Text Container Hero */
+.hero-content {
+    z-index: 10; /* Ebene 10: Vorne */
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* --- 4. TYPOGRAFIE HERO (HEADER) --- */
+.top-header {
+    text-align: center;
+    position: relative;
+    margin-top: -35vh; 
+}
+
+.main-title {
+    font-family: var(--font-serif);
+    font-size: 8rem; 
+    /* HIER: Je kleiner die Zahl, desto enger die Zeilen */
+    line-height: 0.55; 
+    color: var(--color-orange);
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+}
+
+/* Obere Zeile */
+.line-top {
+    display: block;
+}
+
+/* Untere Zeile (Wrapper für Pseudo-Elemente) */
+.line-bottom-wrapper {
+    position: relative;
+    display: inline-block; 
+    /* HIER: Zieht die zweite Zeile zusätzlich nach oben */
+    margin-top: -10px; 
+}
+
+/* "GRAPHIC DESIGNER" links und rechts */
+.line-bottom-wrapper::before,
+.line-bottom-wrapper::after {
+    content: "Multimedia Producer";
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-orange);
+    position: absolute;
+    top: 55%; 
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+.line-bottom-wrapper::before {
+    right: 100%;
+    margin-right: 20px; /* Abstand links */
+}
+
+.line-bottom-wrapper::after {
+    left: 100%;
+    margin-left: 20px; /* Abstand rechts */
+}
+
+/* Est. 2022 */
+.est {
+    font-family: 'Brush Script MT', cursive;
+    color: #fff;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 100%; /* Unter dem Titel */
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    margin-top: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    white-space: nowrap;
+}
+
+/* --- 5. FOOTER (Vollbild Style) --- */
+.footer-section {
+    padding: 0; /* Randlos */
+    background-color: var(--color-orange);
+}
+
+/* Footer Hintergrundbild */
+.footer-image-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.footer-image-container img {
+    width: 100%; height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+/* Footer Inhalt */
+.footer-content {
+    position: relative;
+    z-index: 2; /* Über dem Bild */
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.big-cta {
+    font-size: 6rem;
+    text-align: center;
+    color: var(--color-orange); 
+    font-family: var(--font-serif);
+    line-height: 0.9;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.4);
+}
+
+.footer-links {
+    display: flex;
+    gap: 3rem;
+    color: #fff;
+    background-color: var(--color-orange);
+    width: 100%; /* Volle Breite */
+    justify-content: center;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0; /* Klebt unten */
+    left: 0;
+    z-index: 3;
+}
+
+/* --- 6. LAYOUT UTILITIES (Content Sections) --- */
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    height: 100%;
+    align-items: center;
+}
+
+/* Farben */
+.intro-section { background-color: var(--color-beige); }
+.red-section { background-color: var(--color-orange); color: var(--color-beige); }
+.yellow-section { background-color: var(--color-yellow); }
+.beige-section { background-color: var(--color-beige); }
+
+/* Typografie Rest */
+.section-title { font-size: 5rem; margin-bottom: 1rem; font-family: var(--font-serif); text-transform: uppercase; line-height: 0.9;}
+.project-title { font-size: 4rem; color: var(--color-orange); margin-bottom: 1rem; font-family: var(--font-serif); text-transform: uppercase; line-height: 0.9;}
+.handwritten { font-family: 'Brush Script MT', cursive; font-size: 2rem; color: var(--color-orange); margin-bottom: 1rem; }
+.text-orange { color: var(--color-orange); }
+.text-light { color: #E8D5B5; }
+
+/* Bilder & Deko */
+img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+.collage { height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.img-1 { align-self: flex-start; width: 70%; transform: rotate(-2deg); }
+.img-2 { align-self: flex-end; width: 70%; margin-top: -50px; border: 5px solid #fff; }
+
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; height: 70%; align-items: center; }
+.item-1 { align-self: start; } .item-2 { align-self: center; margin-top: 50px;} .item-3 { align-self: end; position: relative; }
+
+.star-placeholder, .flower-placeholder { color: var(--color-orange); font-size: 4rem; position: absolute; user-select: none; }
+.big-star { font-size: 10rem; transform: rotate(15deg); }
+.flower-placeholder { color: #F9E4C9; font-size: 6rem; top: -50px; right: -20px;}
+.outline-text { -webkit-text-stroke: 2px #F9E4C9; color: transparent; font-size: 4rem; position: absolute; bottom: 5%; left: 0; font-family: var(--font-serif); }
+.outline-flower { -webkit-text-stroke: 2px var(--color-orange); color: transparent; }
+.small-star { position: relative; font-size: 1.5rem; color: #fff; } /* Sterne im Footer */
+
+/* --- 7. MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .section { height: auto; min-height: 100vh; padding: 4rem 1rem; }
+    .hero-section, .footer-section { height: 100vh; padding: 0; }
+    .scroll-container { scroll-snap-type: none; overflow-y: auto; }
+    
+    .grid-2-col { grid-template-columns: 1fr; gap: 2rem; }
+    .reverse-mobile { display: flex; flex-direction: column-reverse; }
+    
+    /* Hero Mobile */
+    .main-title { font-size: 4.5rem; line-height: 0.8; }
+    /* Auf Handy seitliche Texte ausblenden, da kein Platz */
+    .line-bottom-wrapper::before, .line-bottom-wrapper::after { display: none; }
+    
+    .est { font-size: 2rem; top: 100%; margin-top: 20px; }
+    .section-title { font-size: 3rem; }
+    .project-title { font-size: 2.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .item-2 { margin-top: 0; }
+    .big-cta { font-size: 3rem; }
+    .footer-links { flex-direction: column; text-align: center; padding-bottom: 2rem; gap: 1rem;}
+}
