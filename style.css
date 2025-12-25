@@ -116,14 +116,13 @@ body {
 
 .est {
     font-family: 'Brush Script MT', cursive;
-    color: #fff;
-    font-size: 2.5rem;
+    color: #EA3C12;
+    font-size: 2.2rem;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%) rotate(-5deg);
-    margin-top: 10px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    margin-top: 30px;
     white-space: nowrap;
 }
 
@@ -283,9 +282,9 @@ img { max-width: 100%; height: auto; display: block; object-fit: cover; }
 
 /* 5. Luxury Wellness (Ecke unten) */
 .icon-corner {
-    width: 120px;
-    bottom: -40px;
-    right: -40px;
+    width: 320px;
+    bottom: -20px;
+    right: 440px;
     z-index: 2;
     transform: rotate(-15deg);
 }
