@@ -10,7 +10,7 @@ Ehrlicherweise war dieses Portfolio nicht mein erster Plan für dieses Modul. Ur
 Leider ist dieses Musik-Projekt aufgrund externer Faktoren ins Stocken geraten. Da das Projekt stagnierte, fehlten uns schlichtweg die Inhalte (Content, Medien, Texte), um eine sinnvolle Website darum herumzubauen. Deshalb musste ich umdisponieren und habe mich entschieden, stattdessen eine Portfolio-Page für mich selbst zu erstellen. Das gab mir die Möglichkeit, bestehende Arbeiten aus meinem Studium und meiner Tätigkeit beim Tagblatt neu zu verpacken.
 
 ### Mein technischer Ansatz
-Da ich mich technisch eher als Anfàngerin sehe und meine Stärken definitiv mehr im Visuellen und Konzeptionellen liegen, war dieses Projekt eine ziemliche Herausforderung für mich. Mein Ziel war es nicht, den komplexesten Code der Welt zu schreiben, sondern mit den mir bekannten Mitteln (und viel Recherche und viel Chat GPT Unterstützung) ein Design umzusetzen, das trotzdem professionell und "poliert" aussieht.
+Da ich mich technisch eher als Anfängerin sehe und meine Stärken definitiv mehr im Visuellen und Konzeptionellen liegen, war dieses Projekt eine ziemliche Herausforderung für mich. Mein Ziel war es nicht, den komplexesten Code der Welt zu schreiben, sondern mit den mir bekannten Mitteln (und viel Recherche und viel Chat GPT Unterstützung) ein Design umzusetzen, das trotzdem professionell und "poliert" aussieht.
 
 Ich habe bewusst auf Baukästen verzichtet und alles selber mit HTML, CSS und JavaScript gebaut, um die Grundlagen wirklich zu verstehen und zu üben. Und somit das Portfolio auch selbst als Arbeit präsentieren kann, beim bewerben.
 
@@ -39,11 +39,11 @@ Ich habe bewusst auf Baukästen verzichtet und alles selber mit HTML, CSS und Ja
 
 ## Schwierigkeiten & Learnings
 
-Während der Entwicklung bin ich auf einige Hürden gestoßen, die ich lösen musste:
+Während der Entwicklung bin ich auf einige Hürden gestossen, die ich lösen musste:
 
 ### 1. Mobile Responsiveness (Der Header)
 Eine der grössten Schwierigkeiten war der Titel "GINA SORAYA RUFFINO" auf dem Handy.
-* **Problem:** Die Schrift sollte groß bleiben, aber die Wörter überlappten sich ständig oder brachen falsch um.
+* **Problem:** Die Schrift sollte gross bleiben, aber die Wörter überlappten sich ständig oder brachen falsch um.
 * **Lösung:** Ich musste tief in die CSS-Trickkiste greifen (`line-height`, negative `margin-top` und `word-wrap: break-word`), um die Wörter "gestapelt" darzustellen, ohne dass sie sich berühren.
 
 ### 2. Das JavaScript für die Animation
