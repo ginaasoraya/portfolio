@@ -42,7 +42,7 @@ Ich habe bewusst auf Baukästen verzichtet und alles selber mit HTML, CSS und Ja
 Während der Entwicklung bin ich auf einige Hürden gestoßen, die ich lösen musste:
 
 ### 1. Mobile Responsiveness (Der Header)
-Eine der größten Schwierigkeiten war der Titel "GINA SORAYA RUFFINO" auf dem Handy.
+Eine der grössten Schwierigkeiten war der Titel "GINA SORAYA RUFFINO" auf dem Handy.
 * **Problem:** Die Schrift sollte groß bleiben, aber die Wörter überlappten sich ständig oder brachen falsch um.
 * **Lösung:** Ich musste tief in die CSS-Trickkiste greifen (`line-height`, negative `margin-top` und `word-wrap: break-word`), um die Wörter "gestapelt" darzustellen, ohne dass sie sich berühren.
 
